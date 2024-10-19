@@ -1,0 +1,29 @@
+#gallery ul {
+	margin: 0;
+}
+.kad_caption {
+	z-index: 500;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background: transparent;
+-webkit-transition: background .4s ease-in-out;
+		-moz-transition: background .4s ease-in-out;
+		-o-transition: background .4s ease-in-out;
+		transition: background .4s ease-in-out;
+}
+.kad_caption_inner {
+	padding: 10px;
+	color: #fff;
+}
+.gallery_item:hover .kad_caption {
+	background: #000;
+background: rgba(0, 0, 0, 0.4);
+}
+.gallery_item {
+	position: relative;
+}
+.gallery_item .grid_item {
+position: relative;
+}
