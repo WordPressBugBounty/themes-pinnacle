@@ -4,7 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version 6.1.0
+ * @version 9.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,7 +46,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 	        <?php endforeach;?>
 		</tbody>
 	</table>
-
+	<div class="reset_variations_alert screen-reader-text" role="alert" aria-live="polite" aria-relevant="all"></div>
+	<?php do_action( 'woocommerce_after_variations_table' ); ?>
 	<?php if ( version_compare( WC_VERSION, '3.4', '<' ) ) {
 		do_action( 'woocommerce_before_add_to_cart_button' ); 
 	} ?>

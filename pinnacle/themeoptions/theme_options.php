@@ -1,6 +1,5 @@
 <?php
 define( 'LAYOUT_PATH', get_template_directory() . '/assets/css/skins/' );
-load_theme_textdomain( 'pinnacle', get_template_directory() . '/languages' );
 define( 'OPTIONS_PATH', get_template_directory_uri() . '/themeoptions/options_assets/' );
 $alt_stylesheet_path = LAYOUT_PATH;
 $alt_stylesheets = array();

@@ -30,7 +30,31 @@ Yes, go here: https://www.kadencewp.com/kadence-themes-demo-content/
 
 Yes, go here: https://wordpress.org/support/theme/pinnacle
 
+= Where do I report security bugs found in this theme? =
+
+Please report security bugs found in the source code of the
+Pinnacle Theme through the Patchstack
+Vulnerability Disclosure Program https://patchstack.com/database/vdp/pinnacle. The
+Patchstack team will assist you with verification, CVE assignment, and
+notify the developers of this theme.
+
+== Security Policy ==
+
+= Reporting Security Bugs =
+
+Please report security bugs found in the
+Pinnacle theme's source code through the
+Patchstack Vulnerability Disclosure
+Program https://patchstack.com/database/vdp/pinnacle. The Patchstack team will
+assist you with verification, CVE assignment, and notify the
+developers of this theme.
+
 == Changelog ==
+
+= 1.8.7 | 18th December 2024 =
+* Update: WC Templates
+* Update: PHP 8.2 deprecations
+* Fix: Issue with text domain loading.
 
 = 1.8.6 | 15th June 2023 =
 * Fix: WC notice.

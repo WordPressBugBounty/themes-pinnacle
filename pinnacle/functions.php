@@ -11,7 +11,7 @@
 function pinnacle_lang_setup() {
 	load_theme_textdomain( 'pinnacle', get_template_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 'pinnacle_lang_setup' );
+add_action( 'init', 'pinnacle_lang_setup' );
 
 /*
  * Init Customizer Options

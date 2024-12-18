@@ -180,6 +180,14 @@
             public $omit_share_icons = false;
             public $omit_admin_items = false;
           	public $transients = array();
+            public $old_opt_name = '';
+            public $wp_data = array();
+            public $field_types = array();
+            public $field_head = array();
+            public $apiHasRun = '';
+            public $googleArray = array();
+            public $transients_check = '';
+            public $validation_ran;
 
             /**
              * Class Constructor. Defines the args for the theme options class
@@ -3982,7 +3990,7 @@
                 $name_arr=func_get_args();
                 $args = array_merge( array( $current_user ),$name_arr );
 
-                return call_user_func_array( array( 'self', 'user_can' ), $args );
+                return call_user_func_array( array( ReduxFramework::class, 'user_can' ), $args );
             }
 
 
