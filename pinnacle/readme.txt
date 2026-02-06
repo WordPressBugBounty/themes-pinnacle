@@ -2,6 +2,7 @@
 Requires at least: 4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.8.8
 
 == Description ==
 Pinnacle is a "Classic" theme built before the WordPress Block editor was created. While it supports the block editor, it wasn't built to be optimized for the block editor (because the block editor wasn't created). Pinnacle is a bold theme with a versatile theme options panel for multiple styles. Its fully responsive layout makes for easy navigation on mobile/tablet displays. Pinnacle is fully compatible with woocommerce and gives you a unique layout for an e-commerce site.
@@ -50,6 +51,9 @@ assist you with verification, CVE assignment, and notify the
 developers of this theme.
 
 == Changelog ==
+
+= 1.8.8 | 9th October 2025 =
+* Update: Woo Commerce templates.
 
 = 1.8.7 | 18th December 2024 =
 * Update: WC Templates

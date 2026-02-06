@@ -4,11 +4,16 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     9.0.0
+ * @version     9.7.0
  */
 
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+// Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
+if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
+	return;
+}
 
 global $post, $woocommerce, $product, $pinnacle;
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 5 );
@@ -56,7 +61,7 @@ if ( isset( $pinnacle['product_simg_resize'] ) && 0 == $pinnacle['product_simg_r
 	$productimgheight = $productimgwidth;	
 }
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>">
+<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
 	<div class="woocommerce-product-gallery__wrapper <?php echo esc_attr( $galleryslider . ' ' . $galleryzoom ); ?>">
 	<?php
 		if ( ! $galslider ) {
@@ -87,7 +92,10 @@ if ( isset( $pinnacle['product_simg_resize'] ) && 0 == $pinnacle['product_simg_r
 				$html .= '</a></div>';
 			}
 		} else {
-			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
+			$wrapper_classname = $product->is_type( 'variable' ) && ! empty( $product->get_available_variations( 'image' ) ) ?
+				'woocommerce-product-gallery__image woocommerce-product-gallery__image--placeholder' :
+				'woocommerce-product-gallery__image--placeholder';
+			$html  = sprintf( '<div class="%s">', esc_attr( $wrapper_classname ) );
 			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'pinnacle' ) );
 			$html .= '</div>';
 		}

@@ -4,14 +4,23 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version    9.5.0
+ * @version    9.8.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
+if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
+	return;
+}
+
 global $post, $product, $pinnacle;
+
+if ( ! $product || ! $product instanceof WC_Product ) {
+	return '';
+}
 
 if ( version_compare( WC_VERSION, '3.0', '>' ) ) {
 	$attachment_ids = $product->get_gallery_image_ids();
@@ -65,7 +74,7 @@ if ( $attachment_ids && $product->get_image_id() ) {
 		 		$html .= '</a></div>';
 		 	}
 
-			echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id );
+			echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $attachment_id ); // PHPCS:Ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 }
