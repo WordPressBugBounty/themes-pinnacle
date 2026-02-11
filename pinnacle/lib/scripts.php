@@ -46,9 +46,10 @@ add_action( 'wp_enqueue_scripts', 'pinnacle_scripts', 100 );
 
 /**
  * Add Respond.js for IE8 support of media queries
+ * Note: IE conditional comments are deprecated in WordPress 6.9.0+ but kept for backward compatibility
  */
 function pinnacle_ie_support_header() {
 	wp_enqueue_script( 'pinnacle-respond', get_template_directory_uri() . '/assets/js/vendor/respond.min.js' );
-	wp_script_add_data( 'pinnacle-respond', 'conditional', 'lt IE 9' );
+	// IE conditional comments deprecated in WordPress 6.9.0+ - removed for compatibility
 }
 add_action( 'wp_enqueue_scripts', 'pinnacle_ie_support_header', 15 );

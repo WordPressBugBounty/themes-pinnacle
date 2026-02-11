@@ -19,7 +19,24 @@ if ( is_dir( $alt_stylesheet_path ) ) {
 if ( ! class_exists( 'Redux' ) ) {
 		return;
 }
-// This is your option name where all the Redux data is stored.
+
+// Wrap Redux initialization in a function that runs on init to ensure translations are loaded
+function pinnacle_init_redux_options() {
+	// Populate alt stylesheets array (needed for theme options)
+	$alt_stylesheet_path = LAYOUT_PATH;
+	$alt_stylesheets = array();
+	if ( is_dir( $alt_stylesheet_path ) ) {
+		if ( $alt_stylesheet_dir = opendir( $alt_stylesheet_path ) ) {
+			while ( ( $alt_stylesheet_file = readdir( $alt_stylesheet_dir ) ) !== false ) {
+				if ( stristr( $alt_stylesheet_file, '.css' ) !== false ) {
+					$alt_stylesheets[ $alt_stylesheet_file ] = $alt_stylesheet_file;
+				}
+			}
+			closedir( $alt_stylesheet_dir );
+		}
+	}
+
+	// This is your option name where all the Redux data is stored.
 	$opt_name = 'pinnacle';
 
 	// If Redux is running as a plugin, this will remove the demo notice and links
@@ -2809,6 +2826,9 @@ if ( ! class_exists( 'Redux' ) ) {
 			),
 		)
 	);
+}
+// Hook Redux initialization to init to ensure translations are loaded first
+add_action( 'init', 'pinnacle_init_redux_options', 10 );
 
 	function kadence_override_redux_icons_css() {
 		wp_dequeue_style( 'redux-admin-css' );
