@@ -2828,7 +2828,7 @@ function pinnacle_init_redux_options() {
 	);
 }
 // Hook Redux initialization to init to ensure translations are loaded first
-add_action( 'init', 'pinnacle_init_redux_options', 10 );
+add_action( 'init', 'pinnacle_init_redux_options', 2 );
 
 	function kadence_override_redux_icons_css() {
 		wp_dequeue_style( 'redux-admin-css' );

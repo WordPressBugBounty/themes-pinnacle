@@ -7,7 +7,7 @@
 
 /**
  * Language setup
- * Load translations on init (priority 1) before Redux options initialization (priority 10)
+ * Load translations on init (priority 1) before Redux options initialization (priority 2)
  */
 function pinnacle_lang_setup() {
 	load_theme_textdomain( 'pinnacle', get_template_directory() . '/languages' );
